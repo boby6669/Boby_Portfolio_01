@@ -44,21 +44,21 @@ const Work = () => {
             {workData.map((data, index) => (
               <div
                 key={index}
-                className="relative pl-9 before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-purple before:content-[''] cursor-pointer transition-all duration-300 hover:-translate-y-2 sm:pl-12"
+                className="group relative pl-9 before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-gradient-to-b before:from-purple before:to-pink before:content-[''] sm:pl-12"
               >
                 {/* timeline */}
-                <div className='absolute left-[-0.4rem] top-0 h-5 w-5 rounded-full bg-purple shadow-[0_0_14px_#885cf6] sm:left-[-0.5rem] sm:h-6 sm:w-6'>
+                <div className='absolute left-[-0.4rem] top-0 h-5 w-5 rounded-full border-4 border-dark-100 bg-purple shadow-[0_0_14px_#885cf6] transition group-hover:scale-125 sm:left-[-0.5rem] sm:h-6 sm:w-6'>
 
                 </div>
                 {/* box */}
-                <div className="rounded-2xl bg-dark-300 p-5 shadow-lg shadow-black/10 sm:p-6">
+                <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-dark-300 to-dark-200 p-5 shadow-lg shadow-black/10 transition-all duration-300 group-hover:-translate-y-1 group-hover:border-purple/40 group-hover:shadow-purple/10 sm:p-6">
                   <div className='mb-2 flex flex-col items-start gap-2 sm:flex-row sm:items-start sm:justify-between'>
                      <h3 className="text-lg font-semibold sm:text-xl">{data.role}</h3>
-                     <span className='rounded-full bg-purple/20 px-3 py-1 text-xs text-purple'>{data.duration}</span>
+                     <span className='rounded-full border border-purple/20 bg-purple/10 px-3 py-1 text-xs text-purple'>{data.duration}</span>
                   </div>
                   
-                  <p className="text-gray-400">{data.company}</p>
-                  <p className="text-gray-300">{data.description}</p>
+                  <p className="mb-2 text-sm font-medium text-purple/80">{data.company}</p>
+                  <p className="text-sm leading-6 text-gray-300">{data.description}</p>
                 </div>
               </div>
             ))}

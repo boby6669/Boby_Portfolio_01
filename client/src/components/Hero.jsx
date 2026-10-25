@@ -42,13 +42,14 @@ const Hero = () => {
                     <a href='https://github.com/boby6669' target='_blank' rel='noreferrer' aria-label='GitHub' className='text-white/60 transition hover:text-purple'><FaGithub /></a>
                     <a href='https://www.linkedin.com/in/boby-kumar-bk7' target='_blank' rel='noreferrer' aria-label='LinkedIn' className='text-white/60 transition hover:text-purple'><FaLinkedin /></a>
                 </div>
-                <a href='https://wa.me/919876543210?text=Hi%20Boby%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.' target='_blank' rel='noreferrer' className='mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#25D366] transition hover:brightness-125'><FaWhatsapp /> Chat on WhatsApp</a>
+                <a href='https://wa.me/8298327934?text=Hi%20Boby%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.' target='_blank' rel='noreferrer' className='mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#25D366] transition hover:brightness-125'><FaWhatsapp /> Chat on WhatsApp</a>
             </div>
 
             {/* right side containt */}
 
             <div className='flex w-full justify-center md:w-1/2'>
-                <div className='relative h-56 w-56 sm:h-64 sm:w-64 md:h-80 md:w-80'>
+                <div className='relative pt-3'>
+                    <div className='relative h-56 w-56 sm:h-64 sm:w-64 md:h-80 md:w-80'>
                     <div className='absolute -inset-3 rounded-full bg-gradient-to-r from-purple to-pink opacity-50 blur-xl' />
                     <div className='absolute inset-0 rounded-full bg-gradient-to-r from-purple to-pink p-1'>
                         <MotionImage
@@ -61,6 +62,7 @@ const Hero = () => {
                         }}
                         className='relative z-10 h-full w-full rounded-full border-4 border-[#17151f] object-cover animate-float'
                         src={assets.myPhoto} alt="profile" />
+                    </div>
                     </div>
                 </div>
             </div>

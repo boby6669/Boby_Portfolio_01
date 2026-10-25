@@ -23,16 +23,19 @@ const Skills = () => {
                 <div className='mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
                     {
                         skills.map((skill, index) => (
-                            <div key={index} className='cursor-pointer rounded-2xl border border-white/5 bg-dark-200 p-5 transition duration-300 hover:-translate-y-2 sm:p-6'>
-                                <div className='mb-4 flex items-center'>
-                                    <skill.icon className='w-12 h-12 text-purple mr-6' />
-                                    <h3 className='text-xl font-semibold'>{skill.title}</h3>
+                            <div key={index} className='group relative cursor-pointer overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-dark-200 to-dark-300/80 p-5 shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-2 hover:border-purple/40 hover:shadow-purple/10 sm:p-6'>
+                                <span className='absolute -right-8 -top-8 h-24 w-24 rounded-full bg-purple/10 blur-2xl transition group-hover:bg-purple/25' />
+                                <div className='relative mb-5 flex items-center gap-4'>
+                                    <span className='flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-purple/10 text-2xl text-purple transition group-hover:bg-purple group-hover:text-white'>
+                                        <skill.icon />
+                                    </span>
+                                    <h3 className='text-lg font-semibold sm:text-xl'>{skill.title}</h3>
                                 </div>
-                                <p className='text-gray-400 mb-4'>{skill.description}</p>
+                                <p className='relative mb-5 text-sm leading-6 text-gray-400'>{skill.description}</p>
 
-                                <div className='flex flex-wrap gap-2'>
+                                <div className='relative flex flex-wrap gap-2'>
                                     {skill.tags.map((tech)=>(
-                                        <span key={tech} className='px-3 py-1 bg-dark-400 rounded-full text-sm'>{tech}</span>
+                                        <span key={tech} className='rounded-full border border-white/5 bg-dark-400/80 px-3 py-1 text-xs text-white/75 transition group-hover:border-purple/20'>{tech}</span>
                                     ))}
                                 </div>
                             </div>

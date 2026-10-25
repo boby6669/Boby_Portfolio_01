@@ -123,11 +123,11 @@ const Contact = () => {
                                 )
 
                                 return href ? (
-                                    <a key={label} href={href} className='flex items-center gap-4 rounded-2xl border border-white/5 bg-black/10 p-3 transition hover:border-purple/40 hover:bg-purple/10'>
+                                    <a key={label} href={href} className='group flex items-center gap-4 rounded-2xl border border-white/5 bg-black/10 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-purple/40 hover:bg-purple/10'>
                                         {content}
                                     </a>
                                 ) : (
-                                    <div key={label} className='flex items-center gap-4 rounded-2xl border border-white/5 bg-black/10 p-3 transition hover:border-purple/40 hover:bg-purple/10'>
+                                    <div key={label} className='group flex items-center gap-4 rounded-2xl border border-white/5 bg-black/10 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-purple/40 hover:bg-purple/10'>
                                         {content}
                                     </div>
                                 )
