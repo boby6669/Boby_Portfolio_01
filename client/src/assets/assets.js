@@ -2,9 +2,9 @@ import { FaLightbulb, FaPaintBrush, FaCode, FaReact, FaServer, FaMobileAlt, FaTo
 
 import profileImg from '../assets/profile.avif';
 import myPhoto from '../assets/boby_p.avif';
-import Quickai from '../assets/QuickAI.avif';
-import Carrental from '../assets/CarRental.avif';
-import MainProfile from '../assets/mainProfile.avif';
+import Quickai from '../assets/Quickai.avif';
+import Carrental from '../assets/Carrental.avif';
+import MainProfile from '../assets/Mainprofile.avif';
 
 import projectImg1 from '../assets/project1.avif';
 import projectImg2 from '../assets/project2.avif';
