@@ -27,32 +27,32 @@ const Work = () => {
       transition={{ duration: 1, ease: 'easeOut' }}
       viewport={{ once: false, amount: 0.2 }}
       id='experience'
-      className='py-20 bg-dark-100'
+      className='bg-dark-100 py-16 sm:py-20'
     >
-      <div className='container mx-auto px-6'>
+      <div className='container mx-auto px-5 sm:px-6'>
         <h2 className='text-3xl font-bold text-center mb-4 '>
           My <span className='text-purple'>Experience</span>
         </h2>
-        <p className='text-gray-400 text-center max-w-2xl mx-auto mb-16'>
+        <p className='mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-400 sm:mb-16 sm:text-base'>
           My professional journey so far
         </p>
 
         <div className='max-w-3xl mx-auto'>
-          <div className='space-y-12'>
+          <div className='space-y-8 sm:space-y-12'>
             {workData.map((data, index) => (
               <div
                 key={index}
-                className="relative pl-12 before:content-[''] before:absolute before:left-0 before:top-0 before:w-[2px] before:h-full before:bg-purple cursor-pointer hover:-translate-y-2 transition-all duration-300"
+                className="relative pl-9 before:absolute before:left-0 before:top-0 before:h-full before:w-[2px] before:bg-purple before:content-[''] cursor-pointer transition-all duration-300 hover:-translate-y-2 sm:pl-12"
               >
                 {/* timeline */}
-                <div className='absolute left-[-0.5rem] top-0 w-6 h-6 rounded-full bg-purple'>
+                <div className='absolute left-[-0.4rem] top-0 h-5 w-5 rounded-full bg-purple shadow-[0_0_14px_#885cf6] sm:left-[-0.5rem] sm:h-6 sm:w-6'>
 
                 </div>
                 {/* box */}
-                <div className="bg-dark-300 p-6 rounded-2xl">
-                  <div className='flex justify-between items-start mb-2'>
-                     <h3 className="text-xl font-semibold">{data.role}</h3>
-                     <span className='px-3 py-1 bg-purple/20 text-purple rounded-full text-xs'>{data.duration}</span>
+                <div className="rounded-2xl bg-dark-300 p-5 shadow-lg shadow-black/10 sm:p-6">
+                  <div className='mb-2 flex flex-col items-start gap-2 sm:flex-row sm:items-start sm:justify-between'>
+                     <h3 className="text-lg font-semibold sm:text-xl">{data.role}</h3>
+                     <span className='rounded-full bg-purple/20 px-3 py-1 text-xs text-purple'>{data.duration}</span>
                   </div>
                   
                   <p className="text-gray-400">{data.company}</p>

@@ -10,20 +10,20 @@ const Contact = () => {
             transition={{ duration: 1, ease: 'easeOut' }}
             viewport={{ once: false, amount: 0.2 }}
             id='contact'
-            className='py-20 bg-dark-100'
+            className='bg-dark-100 py-16 sm:py-20'
         >
-            <div className='container mx-auto px-6'>
+            <div className='container mx-auto px-5 sm:px-6'>
                 <h2 className='text-3xl font-bold text-center mb-4 '>
                     Get In
                     <span className='text-purple'>Touch</span>
                 </h2>
-                <p className='text-gray-400 text-center max-w-2xl mx-auto mb-16 '>Have a project in mind or want to collaborate? Let's talk!</p>
+                <p className='mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-400 sm:mb-16 sm:text-base'>Have a project in mind or want to collaborate? Let's talk!</p>
 
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto'>
+                <div className='mx-auto grid max-w-5xl grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12'>
 
                     {/* contact form */}
                     <div>
-                        <form className='mt-8 flex flex-col gap-4'>
+                        <form className='mt-2 flex flex-col gap-4 sm:mt-8'>
                             <input type='text' placeholder='Your Name' className='p-3 rounded-md bg-dark-200 text-white' />
                             <input type='email' placeholder='Your Email' className='p-3 rounded-md bg-dark-200 text-white' />
                             <textarea placeholder='Your Message' className='p-3 rounded-md bg-dark-200 text-white h-32' />

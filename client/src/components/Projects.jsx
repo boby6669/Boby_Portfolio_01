@@ -12,15 +12,15 @@ const Projects = () => {
       transition={{ duration: 1, ease: 'easeOut' }}
       viewport={{ once: false, amount: 0.2 }}
       id='projects'
-      className='py-20 bg-dark-100'
+      className='bg-dark-100 py-16 sm:py-20'
     >
-      <div className='container mx-auto px-6'>
+      <div className='container mx-auto px-5 sm:px-6'>
         <h2 className='text-3xl font-bold text-center mb-4 '>
           My <span className='text-purple'>Projects</span>
         </h2>
-        <p className='text-gray-400 text-center max-w-2xl mx-auto mb-16'>Here are some of my recent works</p>
+        <p className='mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-400 sm:mb-16 sm:text-base'>Here are some of my recent works</p>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto'>
+        <div className='mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
           {/* Map through your projects data and display them here */}
           {
             projects.map((project, index)=>(

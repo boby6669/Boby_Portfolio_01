@@ -11,18 +11,18 @@ const Skills = () => {
             transition={{ duration: 1, ease: 'easeOut' }}
             viewport={{ once: false, amount: 0.2 }}
             id='skills'
-            className='py-20 bg-dark-100'
+            className='bg-dark-100 py-16 sm:py-20'
         >
-            <div className='container mx-auto px-6'>
+            <div className='container mx-auto px-5 sm:px-6'>
                 <h2 className='text-3xl font-bold text-center mb-4 '>
                     My <span className='text-purple'>Skills</span>
                 </h2>
-                <p className='text-gray-400 text-center max-w-2xl mx-auto mb-16'>Technologies I work with to bring ideas to life</p>
+                <p className='mx-auto mb-10 max-w-2xl text-center text-sm leading-6 text-gray-400 sm:mb-16 sm:text-base'>Technologies I work with to bring ideas to life</p>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto'>
+                <div className='mx-auto grid max-w-5xl grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-8'>
                     {
                         skills.map((skill, index) => (
-                            <div key={index} className='bg-dark-200 rounded-2xl p-6 hover:-translate-y-2 transition duration-300 cursor-pointer'>
+                            <div key={index} className='cursor-pointer rounded-2xl border border-white/5 bg-dark-200 p-5 transition duration-300 hover:-translate-y-2 sm:p-6'>
                                 <div className='flex items-center mb-4'>
                                     <skill.icon className='w-12 h-12 text-purple mr-6' />
                                     <h3 className='text-xl font-semibold'>{skill.title}</h3>
