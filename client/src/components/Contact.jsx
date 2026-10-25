@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaPaperPlane } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaWhatsapp } from 'react-icons/fa'
 
 const contactDetails = [
     {
@@ -23,16 +23,40 @@ const contactDetails = [
 
 const Contact = () => {
     const [sent, setSent] = useState(false)
+    const [submitting, setSubmitting] = useState(false)
+    const [error, setError] = useState('')
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         const form = new FormData(event.currentTarget)
-        const subject = encodeURIComponent(`Portfolio enquiry from ${form.get('name')}`)
-        const body = encodeURIComponent(`${form.get('message')}\n\nReply to: ${form.get('email')}`)
+        const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT
 
-        window.location.href = `mailto:bobyk1890@gmail.com?subject=${subject}&body=${body}`
-        setSent(true)
-        event.currentTarget.reset()
+        setError('')
+        setSubmitting(true)
+        try {
+            if (endpoint) {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: form,
+                    headers: { Accept: 'application/json' },
+                })
+
+                if (!response.ok) {
+                    throw new Error('Form submission failed')
+                }
+            } else {
+                const subject = encodeURIComponent(`Portfolio enquiry from ${form.get('name')}`)
+                const body = encodeURIComponent(`${form.get('message')}\n\nReply to: ${form.get('email')}`)
+                window.location.href = `mailto:bobyk1890@gmail.com?subject=${subject}&body=${body}`
+            }
+
+            setSent(true)
+            event.currentTarget.reset()
+        } catch {
+            setError('Message could not be sent. Please try WhatsApp or email directly.')
+        } finally {
+            setSubmitting(false)
+        }
     }
 
     return (
@@ -73,10 +97,11 @@ const Contact = () => {
                                 Message
                                 <textarea required name='message' placeholder='Tell me about your project...' className='min-h-36 resize-y rounded-xl border border-white/10 bg-dark-300 px-4 py-3 text-white outline-none transition placeholder:text-white/30 focus:border-purple focus:ring-2 focus:ring-purple/20' />
                             </label>
-                            <button type='submit' className='inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3 font-semibold text-white shadow-lg shadow-purple/20 transition hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2 focus:ring-offset-dark-200'>
-                                Send Message <FaPaperPlane className='text-sm' />
+                            <button disabled={submitting} type='submit' className='inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-purple px-5 py-3 font-semibold text-white shadow-lg shadow-purple/20 transition hover:bg-purple-700 disabled:cursor-not-allowed disabled:opacity-60 focus:outline-none focus:ring-2 focus:ring-purple focus:ring-offset-2 focus:ring-offset-dark-200'>
+                                {submitting ? 'Sending...' : 'Send Message'} {!submitting && <FaPaperPlane className='text-sm' />}
                             </button>
-                            {sent && <p role='status' className='text-sm text-green-300'>Your email app is opening with the message ready to send.</p>}
+                            {sent && <p role='status' className='text-sm text-green-300'>{import.meta.env.VITE_FORMSPREE_ENDPOINT ? 'Thanks! Your message has been received.' : 'Your email app is opening with the message ready to send.'}</p>}
+                            {error && <p role='alert' className='text-sm text-red-300'>{error}</p>}
                         </form>
                     </div>
 
@@ -102,7 +127,7 @@ const Contact = () => {
                                         {content}
                                     </a>
                                 ) : (
-                                    <div key={label} className='flex items-center gap-4 rounded-2xl border border-white/5 bg-black/10 p-3'>
+                                    <div key={label} className='flex items-center gap-4 rounded-2xl border border-white/5 bg-black/10 p-3 transition hover:border-purple/40 hover:bg-purple/10'>
                                         {content}
                                     </div>
                                 )
@@ -111,9 +136,10 @@ const Contact = () => {
                         <div className='mt-8 border-t border-white/10 pt-6'>
                             <p className='mb-4 text-sm font-medium text-white/70'>Follow me online</p>
                             <div className='flex flex-wrap gap-3'>
+                                <a href='https://wa.me/8298327934?text=Hi%20Boby%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.' target='_blank' rel='noreferrer' className='inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-[#062e14] transition hover:brightness-110'><FaWhatsapp className='text-lg' /> WhatsApp me</a>
                                 <a href='https://github.com/boby6669' target='_blank' rel='noreferrer' aria-label='GitHub' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-purple transition hover:bg-purple hover:text-white'><FaGithub /></a>
-                                <a href='https://www.linkedin.com/in/boby-kumar' target='_blank' rel='noreferrer' aria-label='LinkedIn' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-purple transition hover:bg-purple hover:text-white'><FaLinkedin /></a>
-                                <a href='https://www.instagram.com/__boby__kumar__choudhary__' target='_blank' rel='noreferrer' aria-label='Instagram' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-pink transition hover:bg-pink hover:text-white'><FaInstagram /></a>
+                                <a href='https://www.linkedin.com/in/boby-kumar-bk7' target='_blank' rel='noreferrer' aria-label='LinkedIn' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-purple transition hover:bg-purple hover:text-white'><FaLinkedin /></a>
+                                <a href='https://www.instagram.com/mrchoudhary_official' target='_blank' rel='noreferrer' aria-label='Instagram' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-pink transition hover:bg-pink hover:text-white'><FaInstagram /></a>
                             </div>
                         </div>
                     </div>

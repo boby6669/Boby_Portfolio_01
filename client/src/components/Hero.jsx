@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import {assets} from '../assets/assets'
-import { FaArrowDown, FaGithub, FaLinkedin, FaLocationArrow } from 'react-icons/fa'
+import { FaArrowDown, FaGithub, FaLinkedin, FaLocationArrow, FaWhatsapp } from 'react-icons/fa'
 
 const MotionDiv = motion.div
 const MotionImage = motion.img
@@ -40,8 +40,9 @@ const Hero = () => {
                 <div className='mt-8 flex items-center justify-center gap-4 md:justify-start'>
                     <span className='text-sm text-white/40'>Follow me</span>
                     <a href='https://github.com/boby6669' target='_blank' rel='noreferrer' aria-label='GitHub' className='text-white/60 transition hover:text-purple'><FaGithub /></a>
-                    <a href='https://www.linkedin.com/in/boby-kumar' target='_blank' rel='noreferrer' aria-label='LinkedIn' className='text-white/60 transition hover:text-purple'><FaLinkedin /></a>
+                    <a href='https://www.linkedin.com/in/boby-kumar-bk7' target='_blank' rel='noreferrer' aria-label='LinkedIn' className='text-white/60 transition hover:text-purple'><FaLinkedin /></a>
                 </div>
+                <a href='https://wa.me/919876543210?text=Hi%20Boby%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.' target='_blank' rel='noreferrer' className='mt-5 inline-flex items-center gap-2 text-sm font-medium text-[#25D366] transition hover:brightness-125'><FaWhatsapp /> Chat on WhatsApp</a>
             </div>
 
             {/* right side containt */}
