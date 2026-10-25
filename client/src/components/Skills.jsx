@@ -1,11 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { skills } from '../assets/assets'
-import { span } from 'framer-motion/client'
+
+const MotionDiv = motion.div
 
 const Skills = () => {
     return (
-        <motion.div
+        <MotionDiv
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: 'easeOut' }}
@@ -23,7 +24,7 @@ const Skills = () => {
                     {
                         skills.map((skill, index) => (
                             <div key={index} className='cursor-pointer rounded-2xl border border-white/5 bg-dark-200 p-5 transition duration-300 hover:-translate-y-2 sm:p-6'>
-                                <div className='flex items-center mb-4'>
+                                <div className='mb-4 flex items-center'>
                                     <skill.icon className='w-12 h-12 text-purple mr-6' />
                                     <h3 className='text-xl font-semibold'>{skill.title}</h3>
                                 </div>
@@ -42,7 +43,7 @@ const Skills = () => {
             </div>
             
 
-        </motion.div>
+        </MotionDiv>
     )
 }
 

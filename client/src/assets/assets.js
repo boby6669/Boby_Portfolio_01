@@ -6,14 +6,9 @@ import Quickai from '../assets/Quickai.avif';
 import Carrental from '../assets/Carrental.avif';
 import MainProfile from '../assets/Mainprofile.avif';
 
-import projectImg1 from '../assets/project1.avif';
 import projectImg2 from '../assets/project2.avif';
-import projectImg3 from '../assets/project3.avif';
-import projectImg4 from '../assets/project4.avif';
 import projectImg5 from '../assets/project5.avif';
 import projectImg6 from '../assets/project6.avif';
-import { a } from 'framer-motion/client';
-import { href } from 'react-router-dom';
 
 
 export const assets = {
@@ -98,6 +93,8 @@ export const projects = [
     tech: ["React", "Node.js", "MongoDB", "Stripe"],
     icons: [FaReact, FaNodeJs, FaDatabase , FaStripe],
     demo: "https://quick-ai-client-lac-one.vercel.app/",
+    category: "AI",
+    status: "Live",
     code: "https://github.com/boby6669/QuickAI.git",
   },
   {
@@ -107,6 +104,8 @@ export const projects = [
     tech: ["React Native", "Neon", "MySQL",],
     icons: [FaReact, FaDatabase],
     demo: "#",
+    category: "Full Stack",
+    status: "In Progress",
     code: "https://github.com/boby6669/car-rental-front.git",
   },
   {
@@ -116,6 +115,8 @@ export const projects = [
     tech: ["Next.js", "Tailwind CSS", "Framer Motion", "Markdown"],
     icons: [FaReact, FaCloud],
     demo: "#",
+    category: "React",
+    status: "Concept",
     code: "https://github.com/boby6669/car-rental-front.git",
   },
   {
@@ -125,6 +126,8 @@ export const projects = [
     tech: ["Vue.js", "Firebase", "Tailwind CSS", "WebSockets"],
     icons: [FaVuejs, FaFire, FaCloud , FaDatabase],
     demo: "#",
+    category: "React",
+    status: "Concept",
     code: "https://github.com/boby6669/car-rental-front.git",
   },
   {
@@ -134,6 +137,8 @@ export const projects = [
     tech: ["Socket.IO", "React", "Node.js", "MongoDB"],
     icons: [FaReact, FaNodeJs, FaDatabase ],
     demo: "#",
+    category: "Full Stack",
+    status: "Concept",
     code: "https://github.com/boby6669/car-rental-front.git",
   },
   {
@@ -143,6 +148,8 @@ export const projects = [
     tech: ["React", "OpenAI API", "Cloudinary", "Tailwind CSS"],
     icons: [FaRobot, FaReact, FaCloud],
     demo: "#",
+    category: "AI",
+    status: "Concept",
     code: "https://github.com/boby6669/car-rental-front.git",
   }
 ];

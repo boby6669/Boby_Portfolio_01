@@ -21,6 +21,8 @@ const navItems = [
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false)
+  const [activeSection, setActiveSection] = useState('home')
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     const closeMenuOnEscape = (event) => {
@@ -29,8 +31,23 @@ const Navbar = () => {
       }
     }
 
+    const updateScrollState = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0)
+      const sections = navItems
+        .map(({ href }) => document.querySelector(href))
+        .filter(Boolean)
+      const current = sections.find((section) => section.getBoundingClientRect().top <= 140 && section.getBoundingClientRect().bottom >= 140)
+      if (current) setActiveSection(current.id)
+    }
+
     document.addEventListener('keydown', closeMenuOnEscape)
-    return () => document.removeEventListener('keydown', closeMenuOnEscape)
+    window.addEventListener('scroll', updateScrollState, { passive: true })
+    updateScrollState()
+    return () => {
+      document.removeEventListener('keydown', closeMenuOnEscape)
+      window.removeEventListener('scroll', updateScrollState)
+    }
   }, [])
 
   const toggleMenu = () => setShowMenu((isOpen) => !isOpen)
@@ -38,6 +55,7 @@ const Navbar = () => {
 
   return (
     <nav className='fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-dark-100/85 px-4 py-3 shadow-lg shadow-black/10 backdrop-blur-xl sm:px-6 md:px-8 md:py-4'>
+      <span className='absolute inset-x-0 bottom-0 h-0.5 origin-left bg-gradient-to-r from-purple to-pink' style={{ transform: `scaleX(${scrollProgress / 100})` }} />
       <div className='container mx-auto flex items-center justify-between'>
         <a
           href='#home'
@@ -54,10 +72,10 @@ const Navbar = () => {
             <a
               key={href}
               href={href}
-              className='group relative text-sm font-medium text-white/80 transition duration-300 hover:text-purple'
+              className={`group relative text-sm font-medium transition duration-300 hover:text-purple ${activeSection === href.slice(1) ? 'text-purple' : 'text-white/80'}`}
             >
               <span>{label}</span>
-              <span className='absolute -bottom-2 left-0 h-0.5 w-0 rounded-full bg-purple transition-all duration-300 group-hover:w-full' />
+              <span className={`absolute -bottom-2 left-0 h-0.5 rounded-full bg-purple transition-all duration-300 ${activeSection === href.slice(1) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
             </a>
           ))}
         </div>
@@ -91,15 +109,15 @@ const Navbar = () => {
               <p className='mt-1 text-sm text-white/60'>Find your next favorite section</p>
             </div>
             <div className='grid gap-1'>
-              {navItems.map(({ label, href, icon: Icon }) => (
+              {navItems.map(({ label, href, icon }) => (
                 <a
                   key={href}
                   href={href}
                   onClick={closeMenu}
-                  className='flex min-h-12 items-center gap-4 rounded-xl px-4 py-3 text-base font-medium text-white/85 transition hover:bg-purple/15 hover:text-white active:bg-purple/25'
+                  className={`flex min-h-12 items-center gap-4 rounded-xl px-4 py-3 text-base font-medium transition hover:bg-purple/15 hover:text-white active:bg-purple/25 ${activeSection === href.slice(1) ? 'bg-purple/15 text-white' : 'text-white/85'}`}
                 >
                   <span className='flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 text-purple'>
-                    <Icon className='text-sm' />
+                    {React.createElement(icon, { className: 'text-sm' })}
                   </span>
                   <span>{label}</span>
                   <span className='ml-auto text-white/30'>→</span>

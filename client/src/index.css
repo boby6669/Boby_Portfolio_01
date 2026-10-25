@@ -8,6 +8,28 @@
   font-family: saira, sans-serif;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #1a1a1a;
+  color: #f8fafc;
+}
+
+::selection {
+  background: #885cf6;
+  color: white;
+}
+
 @theme{
   --color-dark-100:#1a1a1a;
   --color-dark-200:#1f1f1f;
@@ -38,6 +60,7 @@
 .typewriter {
   border-right: 0.15em solid #8B5CF6;
   animation: typing 3s steps(20, end) forwards, blink-caret 0.75s step-end 4;
+  max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
@@ -50,4 +73,16 @@
 @keyframes blink-caret {
   from, to { border-color: transparent; }
   50% { border-color: #8B5CF6; }
+}
+
+@media (max-width: 640px) {
+  .typewriter {
+    animation: typing-mobile 2.5s steps(20, end) forwards, blink-caret 0.75s step-end 4;
+    font-size: clamp(1.25rem, 7vw, 1.75rem);
+  }
+}
+
+@keyframes typing-mobile {
+  from { width: 0; }
+  to { width: min(15ch, 100%); }
 }
