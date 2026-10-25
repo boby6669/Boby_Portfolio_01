@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaWhatsapp } from 'react-icons/fa'
+import { FaDownload, FaEnvelope, FaGithub, FaInstagram, FaLinkedin, FaMapMarkerAlt, FaPhone, FaPaperPlane, FaWhatsapp } from 'react-icons/fa'
 
 const contactDetails = [
     {
@@ -137,6 +137,7 @@ const Contact = () => {
                             <p className='mb-4 text-sm font-medium text-white/70'>Follow me online</p>
                             <div className='flex flex-wrap gap-3'>
                                 <a href='https://wa.me/8298327934?text=Hi%20Boby%2C%20I%20found%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.' target='_blank' rel='noreferrer' className='inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-4 py-3 text-sm font-semibold text-[#062e14] transition hover:brightness-110'><FaWhatsapp className='text-lg' /> WhatsApp me</a>
+                                <a href='/Boby%20Kumar_Software%20Engineer.pdf' target='_blank' rel='noreferrer' className='inline-flex items-center gap-2 rounded-xl border border-purple/40 bg-purple/10 px-4 py-3 text-sm font-semibold text-purple transition hover:bg-purple hover:text-white'><FaDownload /> View resume</a>
                                 <a href='https://github.com/boby6669' target='_blank' rel='noreferrer' aria-label='GitHub' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-purple transition hover:bg-purple hover:text-white'><FaGithub /></a>
                                 <a href='https://www.linkedin.com/in/boby-kumar-bk7' target='_blank' rel='noreferrer' aria-label='LinkedIn' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-purple transition hover:bg-purple hover:text-white'><FaLinkedin /></a>
                                 <a href='https://www.instagram.com/mrchoudhary_official' target='_blank' rel='noreferrer' aria-label='Instagram' className='flex h-11 w-11 items-center justify-center rounded-xl bg-dark-300 text-pink transition hover:bg-pink hover:text-white'><FaInstagram /></a>
