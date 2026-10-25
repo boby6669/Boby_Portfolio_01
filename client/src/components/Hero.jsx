@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import {assets} from '../assets/assets'
-import { FaArrowDown, FaDownload, FaGithub, FaLinkedin, FaLocationArrow, FaWhatsapp } from 'react-icons/fa'
+import { FaArrowDown, FaGithub, FaLinkedin, FaLocationArrow, FaWhatsapp } from 'react-icons/fa'
 
 const MotionDiv = motion.div
 const MotionImage = motion.img
@@ -36,7 +36,6 @@ const Hero = () => {
                 <div className='flex flex-wrap justify-center gap-3 sm:gap-4 md:justify-start'>
                     <a href="#projects" className='inline-flex items-center gap-2 rounded-lg bg-purple px-5 py-3 text-sm font-medium shadow-lg shadow-purple/20 transition duration-300 hover:bg-purple-700 sm:px-6 sm:text-base'>View Work <FaLocationArrow className='text-xs' /></a>
                     <a href="#contact" className='rounded-lg border border-purple px-5 py-3 text-sm font-medium transition duration-300 hover:bg-purple/20 sm:px-6 sm:text-base'>Contact</a>
-                    <a href='/Boby%20Kumar_Software%20Engineer.pdf' download className='inline-flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium transition duration-300 hover:border-purple/60 hover:bg-purple/20 sm:px-6 sm:text-base'><FaDownload className='text-xs' /> Resume</a>
                 </div>
                 <div className='mt-8 flex items-center justify-center gap-4 md:justify-start'>
                     <span className='text-sm text-white/40'>Follow me</span>
